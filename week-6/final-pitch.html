@@ -1,0 +1,48 @@
+<style type="text/css">
+
+	body{
+		width: 70%;
+		margin: auto;
+		margin-top: 30px;
+		line-height: 1.5em;
+		font-family: Georgia;
+		font-size: 15px;
+	}
+
+	img {	
+		margin-top: 20px;
+		width:100%;
+	}
+
+	.photoCredit {
+		font-size: 11px;
+		color: #666;
+		text-align: right;
+		margin-top: 0px;
+	}
+
+</style>
+
+<h1><strong>Is our thirst for warmer climates sucking cities dry?</strong></h1>
+
+<p>
+	Southwestern states are experiencing huge population surges, but can their rainfall counts sustain these new residents? <a href="http://www.usatoday.com/story/news/2013/07/09/southwest-climate-change-drought/2439191/">News articles</a> have addressed this question; however, I haven't seen a great visualization that shows the intersection of population and low rainfall.
+</p>
+
+<p>
+	I'm proposing an article that spotlights the current drought in California and also draws a bigger picture of migrations to drier cities over the past decade. With the combined data of population change and rainfall, I'll be able to create a map that shows this trend. I'll map rainfall counts from brown to green in increasing rainfall increments, and I will show areas with larger population growth by increasing the opacity for those areas.
+</p>
+
+<p>
+	For data, I'll need the <a href="https://www.census.gov/main/www/access.html">2010 census data results</a>. There's a page that lists the most populous metro areas and the percent population change since 2010. I'll also need either the most recent yearly rainfall data for these cities or the drought report for those areas. <a href="http://water.weather.gov/precip/">This website</a> has maps that show yearly precipitation for each state, but I couldn't find a chart that made that data, and when I used the inspector to see what elements the site was pulling up, it only showed .png files. I found monthly .pdf reports of precipitation for each state <a href="http://www.ncdc.noaa.gov/IPS/cd/cd.html">here</a>, so I could use a robot to collect each state's data for 12 months and then convert each .pdf into an Excel sheet. There is a <a href="http://droughtmonitor.unl.edu/">map</a> that shows current droughts in the U.S., and <a href="http://droughtmonitor.unl.edu/MapsAndData/DataTables.aspx">here's the chart</a> that made that map. I'd like to talk to Brad Rippey at the Department of Agriculture since he wrote the sidebar. Maybe he'll have insight into how they calculate drought. I'll also talk to drought experts, either at the <a href="http://drought.unl.edu/MonitoringTools/USDroughtMonitor.aspx"> National Drought Mitigation Center</a> or the <a href="http://www.cpc.ncep.noaa.gov/products/Drought/">Climate Prediction Center<a>.
+</p>
+
+<p>
+	I need to figure out how to divide the dataset into different population % groups and different rainfall groups. We know how to do state-by-state maps, but I need to figure out how to do a city-by-city (more analog) map and how to change opacity and color based on data. Also, if I do end up doing a time-lapse version, I'll need to figure out how to do an interactive, looping map. 
+</p>
+
+<p>
+	This is a general trend and so I think any major newspaper could potentially be interested, like USA Today, AP or the New York Times. Alternatively, I could do a localized California-based version and pitch it to a local magazine or newspaper like the Los Angeles Times or the Sacramento Bee.
+</p>
+
+

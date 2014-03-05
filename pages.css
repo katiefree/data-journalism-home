@@ -1,0 +1,7 @@
+.Layout15_1{ width:50%; background-color:99CCFF;  height:800px; float:left;}						
+.Layout15_2{ width:50%; background-color:D8E2EE; float:left; height:400px; }						
+.Layout15_3{ width:50%; background-color:Green; float:left; height:400px; }						
+.Layout15_header{ background-color:Yellow; width:100%; height:100px;}	
+
+////ADD THIS to html page if you want to put this css in:
+///<link href='pages.css' rel='stylesheet' type='text/css' /><div class=templateholder><div class=Layout15_header> </div><div class=Layout15_1 ></div><div  class=Layout15_2 ></div> <div  class=Layout15_3 ></div><div  class=Layout15_4 ></div><div  class=Layout15_5 ></div></div> 
