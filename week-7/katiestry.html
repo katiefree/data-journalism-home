@@ -1,0 +1,197 @@
+<style type="text/css">
+
+	body {
+		width:760px;
+		margin:40px auto;
+		font-family: georgia, sans;
+	}
+
+	h1 {
+		border-bottom:1px solid #dedede;
+		margin-bottom:20px;
+		padding-bottom:20px;
+	}
+
+	.drug-box {
+		text-align: center;
+		background-color: green;
+		float: left;
+		width: 100px;
+		margin: 0px 10px 10px 0px;
+		text-align: center;
+		cursor: pointer;
+		top: 0px;
+		position: relative;
+		height: 100px;
+		overflow: hidden;
+		border-radius: 5px;
+		padding-left: 0px;
+		line-height: 100px;
+	}
+
+	.selected {
+		text-align: center;
+		background-color: gray;
+		float: left;
+		width: 100px;
+		margin: 0px 10px 10px 0px;
+		text-align: center;
+		cursor: pointer;
+		top: 0px;
+		position: relative;
+		height: 100px;
+		border-radius: 5px;
+		padding-left: 0px;
+		line-height: 100px;
+		overflow: hidden;
+		z-index: 2;
+		opacity:.5;
+	}
+
+
+	.drug-grid {
+		width: 600px;
+		height:500px;
+		margin:auto;
+	}
+
+	.sum {
+		background-color: red;
+		height:20px;
+		width: 300px;
+		text-align: center;
+		border-radius:5px;
+		margin:auto;
+		font-family: georgia, sans;
+	}
+</style>
+
+<head>
+        <title> Tylenol Overdose
+        </title>
+    </head>
+
+<h1>OVERDOSE AAAAACK!!!!</h1>
+
+<p>You can overdose on Tylenol. It happens.</p>
+
+<div class="drug-grid"> 
+	<table>
+		<tr>
+			<td><div class="drug-box" id="Excedrin" data-num="2000" style="pointer-events: all;">
+		       <img src="excedrin.jpg">   
+			</div></td>
+
+			<td><div class="drug-box" id="Nyquil" data-num="2600" style="pointer-events: all;">
+		    	<img src="nyquil.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Robitussin" data-num="3840" style="pointer-events: all;">
+		        <img src="robitussin.jpg">
+		    </div></td>
+
+			<td><div class="drug-box" id="Sudafed" data-num="3250">
+				<img src="sudafed.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Alka-Seltzer-Plus" data-num="2000">
+				<img src="alkaseltzer.jpg">
+			</div></td>
+		</tr>
+		<tr>
+			<td><div class="drug-box" id="Theraflu" data-num="3900">
+				<img src="theraflu.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Tylenol-Extra-Strength" data-num="3000">
+				<img src="tylenolextrastrngth.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Zicam" data-num="3900">
+				<img src="zicam.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Anancin" data-num="4000">
+				<img src="anacin.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Childrens-Tylenol" data-num="800">
+				<img src="childrenstylenol.jpg">
+			</div></td>
+		</tr>
+		<tr>
+			<td><div class="drug-box" id="Dimetapp" data-num="800">
+			<img src="dimetapp.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Panadol" data-num="800">
+				<img src="panadol.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Dayquil" data-num="1300">
+				<img src="dayquil.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Coricidin" data-num="3900">
+				<img src="coricidin.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Tylenol-w-codelne" data-num="4000">
+				<img src="tylenolwcodeine.jpg">
+			</div></td>
+		</tr>
+		<tr>
+			<td><div class="drug-box" id="Vicodin-HP" data-num="3960">
+				<img src="vicodin.jpg">
+				</div></td>
+
+			<td><div class="drug-box" id="Percocet" data-num="3900">
+				<img src="percoset.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Hydrocodone-Bitartrate" data-num="3900">
+				<img src="hydrocodone.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Oxycodone" data-num="3900">
+				<img src="oxycodone.jpg">
+			</div></td>
+
+			<td><div class="drug-box" id="Ultracet" data-num="2600">
+				<img src="ultracet.jpg">
+			</div></td>
+	</table>
+
+</div>
+
+<div class="sum">
+</div>
+
+
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+
+<script>
+var currenttotal = 0;
+
+$(".drug-box").click(function(){   // when you 
+	console.log(this.id);
+	console.log($(this).data("num"));
+
+var thisNum = $(this).data("num");
+
+$(this).toggleClass("selected");
+	if($(this).hasClass("selected")){currenttotal = currenttotal + thisNum;}
+	else{currenttotal = currenttotal - thisNum};
+
+$(".sum").html("The current total is " + currenttotal + "mg");
+console.log("Current Total Is", currenttotal);
+});
+
+</script>
+
+<script type="text/javascript">
+
+// this is how you comment in javascript.
+console.log("this is where javascript will go!");
+
+</script>

@@ -1,197 +1,323 @@
+
 <style type="text/css">
 
-	body {
-		width:760px;
-		margin:40px auto;
-		font-family: georgia, sans;
-	}
+body {
+  width:760px;
+  margin:40px auto;
+  font-family: georgia, sans;
+}
 
-	h1 {
-		border-bottom:1px solid #dedede;
-		margin-bottom:20px;
-		padding-bottom:20px;
-	}
+h1 {
+  border-bottom:1px solid #dedede;
+  margin-bottom:20px;
+  padding-bottom:20px;
+  font-size: 1.2em;
+}
 
-	.drug-box {
-		text-align: center;
-		background-color: green;
-		float: left;
-		width: 100px;
-		margin: 0px 10px 10px 0px;
-		text-align: center;
-		cursor: pointer;
-		top: 0px;
-		position: relative;
-		height: 100px;
-		overflow: hidden;
-		border-radius: 5px;
-		padding-left: 0px;
-		line-height: 100px;
-	}
+.drug-box{
+	background:transparent;
+	font-size:15px;
+	width:100px;
+	height:100px;
+	margin-right:10px;
+	margin-bottom: 10px;
+	float:left;
+	text-align:center;
+	cursor:pointer;
+	z-index: 1;
+	opacity:0.5;
+	border-radius:25px;
+}
 
-	.selected {
-		text-align: center;
-		background-color: gray;
-		float: left;
-		width: 100px;
-		margin: 0px 10px 10px 0px;
-		text-align: center;
-		cursor: pointer;
-		top: 0px;
-		position: relative;
-		height: 100px;
-		border-radius: 5px;
-		padding-left: 0px;
-		line-height: 100px;
-		overflow: hidden;
-		z-index: 2;
-		opacity:.5;
-	}
+img.drug-box{
+	border-radius: 10px;
+}
+
+#chart{
+	float:left;
+	width:620px;
+	height:500px;
+}
+
+.barbox{
+	float: left;
+	display: block;
+	height: 430px;
+	width: 15px;
+	position: relative;
+	border-radius:5px;
+	border: 1px solid #dedede;
+	overflow: hidden;
+	padding-left: 0px;
+}
+.dosebar{
+	width: 200px;
+	float:left;
+	position: relative;
+	padding-left: 0px;
+	background: transparent;
+	display: block;
+}
+.barbox .bar{
+	background:#444444;
+	z-index: 3;
+	opacity: 2;
+	padding-left: 600px;
+	
+}
+
+.barbox{
+	background-color: transparent;
+}
+
+.sum{
+	position:absolute;
+	padding-top:15px;
+	left: 73%;
+	font-size: 2em;
 
 
-	.drug-grid {
-		width: 600px;
-		height:500px;
-		margin:auto;
-	}
+}
 
-	.sum {
-		background-color: red;
-		height:20px;
-		width: 300px;
-		text-align: center;
-		border-radius:5px;
-		margin:auto;
-		font-family: georgia, sans;
-	}
+.overlay{
+	color:#444444;
+	display: block;
+	z-index: 2;
+}
+
+.total{
+	position:absolute;
+	font-family: georgia, sans;
+	font-size:1.2em;
+	left: 73%;
+	width:200px;
+}
+
+.milligrams{
+	position: absolute;
+	font-family: georgia, sans;
+	font-size:1.2em;
+	left: 73%;
+	width:200px;
+	padding-top: 50px;
+}
+
+.low{
+	padding-top: 50px;
+}
+
+.mid, .high{
+	font-size: 0.7em;
+}
+
+.condition{
+	position: absolute;
+	padding-top: 90px;
+	left:73%;
+	width: 150px;
+}
+
+.opening{
+	position: absolute;
+	left:73%;
+	padding-top: 30px;
+	width:150px;
+}
+
+.selected{
+	background:#444444;
+	z-index: 3;
+	opacity: 2;
+}
+
+
+
+
 </style>
 
-<head>
-        <title> Tylenol Overdose
-        </title>
-    </head>
+<h1>Project by Keng, Katie and Peipei</h1>
 
-<h1>OVERDOSE AAAAACK!!!!</h1>
+<div id="chart">
 
-<p>You can overdose on Tylenol. It happens.</p>
-
-<div class="drug-grid"> 
-	<table>
-		<tr>
-			<td><div class="drug-box" id="Excedrin" data-num="2000" style="pointer-events: all;">
-		       <img src="excedrin.jpg">   
-			</div></td>
-
-			<td><div class="drug-box" id="Nyquil" data-num="2600" style="pointer-events: all;">
-		    	<img src="nyquil.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Robitussin" data-num="3840" style="pointer-events: all;">
-		        <img src="robitussin.jpg">
-		    </div></td>
-
-			<td><div class="drug-box" id="Sudafed" data-num="3250">
-				<img src="sudafed.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Alka-Seltzer-Plus" data-num="2000">
-				<img src="alkaseltzer.jpg">
-			</div></td>
-		</tr>
-		<tr>
-			<td><div class="drug-box" id="Theraflu" data-num="3900">
-				<img src="theraflu.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Tylenol-Extra-Strength" data-num="3000">
-				<img src="tylenolextrastrngth.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Zicam" data-num="3900">
-				<img src="zicam.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Anancin" data-num="4000">
-				<img src="anacin.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Childrens-Tylenol" data-num="800">
-				<img src="childrenstylenol.jpg">
-			</div></td>
-		</tr>
-		<tr>
-			<td><div class="drug-box" id="Dimetapp" data-num="800">
-			<img src="dimetapp.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Panadol" data-num="800">
-				<img src="panadol.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Dayquil" data-num="1300">
-				<img src="dayquil.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Coricidin" data-num="3900">
-				<img src="coricidin.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Tylenol-w-codelne" data-num="4000">
-				<img src="tylenolwcodeine.jpg">
-			</div></td>
-		</tr>
-		<tr>
-			<td><div class="drug-box" id="Vicodin-HP" data-num="3960">
-				<img src="vicodin.jpg">
-				</div></td>
-
-			<td><div class="drug-box" id="Percocet" data-num="3900">
-				<img src="percoset.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Hydrocodone-Bitartrate" data-num="3900">
-				<img src="hydrocodone.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Oxycodone" data-num="3900">
-				<img src="oxycodone.jpg">
-			</div></td>
-
-			<td><div class="drug-box" id="Ultracet" data-num="2600">
-				<img src="ultracet.jpg">
-			</div></td>
-	</table>
-
+<div class="drug-box overlay" id="Excedrin" data-num="2000">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/excedrin.jpg">
 </div>
 
-<div class="sum">
+<div class="drug-box" id="Nyquil" data-num="2600">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/nyquil.jpg">
 </div>
 
+<div class="drug-box" id="Robitussin" data-num="3840">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/robitussin.jpg">
+</div>
 
-<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<div class="drug-box" id="Sudafed" data-num="3250">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/sudafed.jpg">
+</div>
 
+<div class="drug-box" id="Alka-Seltzer Plus" data-num="2000">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/alkaseltzer.jpg">
+</div>
+
+<div class="drug-box" id="Theraflu" data-num="3900">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/theraflu.jpg">
+</div>
+
+<div class="drug-box" id="Tylenol Extra Strength" data-num="3000">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/tylenolextrastrngth.jpg">
+</div>
+
+<div class="drug-box" id="Zicam" data-num="3900">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/zicam.jpg">
+</div>
+
+<div class="drug-box" id="Anancin" data-num="4000">
+<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/anacin.jpg">
+</div>
+
+<div class="drug-box" id="Children's Tylenol" data-num="800">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/childrenstylenol.jpg">
+</div>
+
+<div class="drug-box" id="Dimetapp" data-num="800">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/dimetapp.jpg">
+</div>
+
+<div class="drug-box" id="Panadol" data-num="800">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/panadol.jpg">
+</div>
+
+<div class="drug-box" id="Dayquil" data-num="1300">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/dayquil.jpg">
+</div>
+
+<div class="drug-box" id="Coricidin" data-num="3900">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/coricidin.jpg">
+</div>
+
+<div class="drug-box" id="Tylenol w/ codelne" data-num="4000">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/tylenolwcodeine.jpg">
+</div>
+
+<div class="drug-box" id="Vicodin HP" data-num="3960">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/vicodin.jpg">
+</div>
+
+<div class="drug-box" id="Percocet" data-num="3900">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/percoset.jpg">
+</div>
+
+<div class="drug-box" id="Hydrocodone Bitartrate" data-num="3900">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/hydrocodone.jpg">
+</div>
+
+<div class="drug-box" id="Oxycodone" data-num="3900">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/oxycodone.jpg">
+</div>
+
+<div class="drug-box" id="Ultracet" data-num="2600">
+	<img src="http://propublica.s3.amazonaws.com/projects/projectx/labels/ultracet.jpg">
+</div>
+
+</div>
+<span>
+	<div class="barbox">
+		<div class="bar"></div></div>
+
+</span>
+
+
+
+
+<div class="opening">Click on a drug to see its daily limit of acetaminophen</div>
+<div class="total"></div>
+<div class="sum"></div>
+<div class="milligrams"></div>
+<div class="condition"></div>
+
+
+
+
+
+
+
+
+
+ <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
 <script>
-var currenttotal = 0;
 
-$(".drug-box").click(function(){   // when you 
+var currentTotal = 0;
+var barHeight = 430;
+
+$(".drug-box").click(function(){
 	console.log(this.id);
 	console.log($(this).data("num"));
 
+
+
 var thisNum = $(this).data("num");
 
-$(this).toggleClass("selected");
-	if($(this).hasClass("selected")){currenttotal = currenttotal + thisNum;}
-	else{currenttotal = currenttotal - thisNum};
 
-$(".sum").html("The current total is " + currenttotal + "mg");
-console.log("Current Total Is", currenttotal);
+$(this).toggleClass("selected");
+	if($(this).hasClass("selected")){
+		currentTotal = currentTotal + thisNum
+		barHeight = 430 - currentTotal*430/15000 + 'px';
+	}
+	else{
+		currentTotal = currentTotal - thisNum;
+		barHeight = 430 - currentTotal*430/15000 + 'px';
+	};
+$(".sum").html(currentTotal);
+$(".bar").css("height", barHeight);
+$(".bar").css("background", "white");
+$(".barbox").css("background", "#444444");
+console.log("currentTotal is", currentTotal);
+
+
+
+if((currentTotal <= 15000) && (currentTotal > 8000)){
+	$(".sum").css("color", "#d17828");
+	$(".condition").text("You've exceeded the level at which liver damage can occur if taken for several days, according to McNeil, the maker of Tylenol.");
+	$(".condition").css("color","black");
+	$(".opening").hide();
+	$(".total").text("The current total is");
+	$(".milligrams").text("milligrams");
+	$(".barbox").css("background", "#d17828");
+	
+}
+if((currentTotal <= 8000) && (currentTotal > 4000)){
+	$(".sum").css("color", "#d5b612");
+	$(".condition").text("You've exceeded the FDA's recommended maximum daily limit of acetaminophen.");
+	$(".condition").css("color","black");
+	$(".opening").hide();
+	$(".total").text("The current total is");
+	$(".milligrams").text("milligrams");
+	$(".barbox").css("background", "#d5b612");
+}
+if(currentTotal <= 4000){
+	$(".sum").css("color", "black");
+	$(".condition").css("color","black");
+	$(".opening").hide();
+	$(".total").text("The current total is");
+	$(".milligrams").text("milligrams");
+	$(".barbox").css("background", "black");
+}
+
+if(currentTotal > 15000){
+	$(".sum").css("color", "#c20803");
+	$(".condition").text("You've exceeded the threshold toxic dose of acetaminophen. A single dose at this level can result in death, according to medical experts and literature.");
+	$(".condition").css("color","black");
+	$(".opening").hide();
+	$(".total").text("The current total is");
+	$(".milligrams").text("milligrams");
+	$(".barbox").css("background", "#c20803");
+}
+
+$(this).css("height",newHeight);
+
 });
 
 </script>
 
-<script type="text/javascript">
 
-// this is how you comment in javascript.
-console.log("this is where javascript will go!");
 
-</script>
