@@ -1,0 +1,148 @@
+<style type="text/css">
+
+    /*css goes here*/
+
+    body {
+        width:750px;
+        margin:20px auto;
+        font-family:georgia;
+    }
+.map-section{
+  border:1px, black;
+}
+
+
+</style>
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    #map-canvas { width:600px; height:400px; }
+    .layer-wizard-search-label { font-family: sans-serif };
+  </style>
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script type="text/javascript">
+    var map;
+    var layer_0;
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: new google.maps.LatLng(25.73946706295354, -95.1015211875),
+        zoom: 4
+      });
+      var style = [
+        {
+          featureType: 'all',
+          elementType: 'all',
+          stylers: [
+            { saturation: -99 }
+          ]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },
+        {
+          featureType: 'transit',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        }
+      ];
+      var styledMapType = new google.maps.StyledMapType(style, {
+        map: map,
+        name: 'Styled Map'
+      });
+      map.mapTypes.set('map-style', styledMapType);
+      map.setMapTypeId('map-style');
+      layer_0 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col4>>0",
+          from: "1CLviCQKRuyihpdGWe3s-fvojMoaqf_bSRuwcYg3n"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+
+
+<script type="text/javascript">
+
+    var tableid = 250464;
+var center = new google.maps.LatLng(37.4, -122.1);
+var initialZoom = 12;
+var coarseZoom = 11;
+var fineZoom = 15;
+
+function initialize() {
+
+  // Initialize the map
+  var map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: center,
+    zoom: initialZoom,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  // Initialize the layer
+  var layer = new google.maps.FusionTablesLayer({
+    query: {
+      select: 'middleLocation',
+      from: tableid
+    }
+  });
+  layer.setMap(map);
+  
+  // Add a listener to listen for zoom changed events
+  google.maps.event.addListener(map, 'zoom_changed', function() {
+    zoomLevel = map.getZoom();
+    
+    // Show a coarser geometry when the map is zoomed out
+    if (zoomLevel <= coarseZoom) {
+      layer.setOptions({
+        query: {
+          select: 'coarseLocation',
+          from: tableid
+        }
+      });
+      
+    // Show a finer geometry when the map is zoomed in
+    } else if (zoomLevel >= fineZoom) {
+      layer.setOptions({
+        query: {
+          select: 'fineLocation',
+          from: tableid
+        }
+      });
+    
+    // Otherwise, show a medium geometry
+    } else {
+      layer.setOptions({
+        query: {
+          select: 'middleLocation',
+          from: tableid
+        }
+      });
+    }
+
+    // Change the zoom level value in the HTML page
+    document.getElementById("zoom").innerHTML = zoomLevel;
+  });
+}
+
+
+</script>
+

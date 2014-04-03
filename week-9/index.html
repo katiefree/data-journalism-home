@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<style type="text/css">
+
+    /*css goes here*/
+
+    body {
+        width:750px;
+        margin:30px auto;
+        font-family:georgia;
+    }
+
+      #map-canvas { width:600px; height:400px; padding:5px;margin-left:auto;
+margin-right:auto;}
+    .layer-wizard-search-label { font-family: sans-serif; padding: 4px;};
+    .map-section{
+      padding: 4px;
+    }
+
+table
+{margin-left:auto;
+margin-right:auto;
+padding: 5px;
+border-collapse:collapse;
+}
+table, th, td
+{
+border: 1px solid black;
+border-collapse:collapse;
+}
+  
+</style>
+
+
+
+ <head></head>
+<h1>Guns in Chicago</h1>
+
+<p class="readout">Where do they come from?</p>
+
+
+ 
+  
+<br></br>
+<div class="map-section">
+
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script type="text/javascript">
+    var map;
+    var layer_0;
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: new google.maps.LatLng(37.547209965572115, -96.80753437500005),
+        zoom: 4
+      });
+      var style = [
+        {
+          featureType: 'all',
+          elementType: 'all',
+          stylers: [
+            { saturation: -99 }
+          ]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },
+        {
+          featureType: 'road.arterial',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },
+        {
+          featureType: 'road.local',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },
+        {
+          featureType: 'administrative.country',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },
+        {
+          featureType: 'transit',
+          elementType: 'all',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        }
+      ];
+      var styledMapType = new google.maps.StyledMapType(style, {
+        map: map,
+        name: 'Styled Map'
+      });
+      map.mapTypes.set('map-style', styledMapType);
+      map.setMapTypeId('map-style');
+      layer_0 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col3>>0",
+          from: "1ffnB_CjlWjfo19i8JXT2R13lsvadorgdLYlVGhS2"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+<br></br>
+  <table>
+  <thead>
+    <tr>
+      <th class="State-cell" align="left">State</th>
+      <th class="Total-cell" align="left">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="firstRow">
+      <td class="State-cell">Illinois</td>
+      <td class="Total-cell">22051</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Indiana</td>
+      <td class="Total-cell">7747</td>
+    </tr>
+    <tr>
+      <td class="State-cell" bgcolor="#FFE273">Mississippi</td>
+      <td class="Total-cell" bgcolor="#FFE273">4296</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Wisconsin</td>
+      <td class="Total-cell">1647</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Kentucky</td>
+      <td class="Total-cell">1226</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Ohio</td>
+      <td class="Total-cell">1121</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Tennessee</td>
+      <td class="Total-cell">1090</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Alabama</td>
+      <td class="Total-cell">1070</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Arkansas</td>
+      <td class="Total-cell">944</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Texas</td>
+      <td class="Total-cell">937</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Georgia</td>
+      <td class="Total-cell">933</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Michigan</td>
+      <td class="Total-cell">679</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Florida</td>
+      <td class="Total-cell">673</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Louisiana</td>
+      <td class="Total-cell">529</td>
+    </tr>
+    <tr>
+      <td class="State-cell">California</td>
+      <td class="Total-cell">526</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Minnesota</td>
+      <td class="Total-cell">474</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Iowa</td>
+      <td class="Total-cell">397</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Arizona</td>
+      <td class="Total-cell">355</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Missouri</td>
+      <td class="Total-cell">344</td>
+    </tr>
+    <tr>
+      <td class="State-cell">North Carolina</td>
+      <td class="Total-cell">295</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Virginia</td>
+      <td class="Total-cell">269</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Oklahoma</td>
+      <td class="Total-cell">207</td>
+    </tr>
+    <tr>
+      <td class="State-cell">West Virginia</td>
+      <td class="Total-cell">202</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Colorado</td>
+      <td class="Total-cell">187</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Pennsylvania</td>
+      <td class="Total-cell">181</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Kansas</td>
+      <td class="Total-cell">177</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Washington</td>
+      <td class="Total-cell">156</td>
+    </tr>
+    <tr>
+      <td class="State-cell">South Carolina</td>
+      <td class="Total-cell">152</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Massachusetts</td>
+      <td class="Total-cell">108</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Nebraska</td>
+      <td class="Total-cell">104</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Nevada</td>
+      <td class="Total-cell">103</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New York</td>
+      <td class="Total-cell">97</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New Mexico</td>
+      <td class="Total-cell">75</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Montana</td>
+      <td class="Total-cell">53</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Utah</td>
+      <td class="Total-cell">53</td>
+    </tr>
+    <tr>
+      <td class="State-cell" id="Maryland">Maryland</td>
+      <td class="Total-cell">50</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Connecticut</td>
+      <td class="Total-cell">46</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Oregon</td>
+      <td class="Total-cell">40</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Idaho</td>
+      <td class="Total-cell">39</td>
+    </tr>
+    <tr>
+      <td class="State-cell">South Dakota</td>
+      <td class="Total-cell">36</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Alaska</td>
+      <td class="Total-cell">33</td>
+    </tr>
+    <tr>
+      <td class="State-cell">North Dakota</td>
+      <td class="Total-cell">31</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Wyoming</td>
+      <td class="Total-cell">29</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New Jersey</td>
+      <td class="Total-cell">21</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Maine</td>
+      <td class="Total-cell">18</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New Hampshire</td>
+      <td class="Total-cell">14</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Delaware</td>
+      <td class="Total-cell">10</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Hawaii</td>
+      <td class="Total-cell">8</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Rhode Island</td>
+      <td class="Total-cell">5</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Vermont</td>
+      <td class="Total-cell">4</td>
+    </tr>
+    <tr class="lastRow">
+      <td class="State-cell">District of Columbia</td>
+      <td class="Total-cell">2</td>
+    </tr>
+  </tbody>
+</table>
+</html>
+
+</div>
+
+<div class="table-section">
+<!-- map work to go in here -->
+</div>
+
+<script type="text/javascript">
+
+    // javascript goes here.
+
+</script>
+
